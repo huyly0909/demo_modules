@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="base.partner_root" model="res.partner">
+            <field name="name">Hệ thống</field>
+            <field name="email">hethong@example.com</field>
+            <field name="image_1920" type="base64" file="base_demo/static/img/bot-icon.png"/>
+        </record>
+    </data>
+</odoo>

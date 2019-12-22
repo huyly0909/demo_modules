@@ -1,0 +1,1218 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--  crm categories -->
+        <record id="categ_oppor1" model="crm.lead.tag">
+            <field name="name">Sản phẩm</field>
+            <field name="color" eval="1"/>
+        </record>
+        <record id="categ_oppor2" model="crm.lead.tag">
+            <field name="name">Phần mềm</field>
+            <field name="color" eval="2"/>
+        </record>
+        <record id="categ_oppor3" model="crm.lead.tag">
+            <field name="name">Dịch vụ</field>
+            <field name="color" eval="3"/>
+        </record>
+        <record id="categ_oppor4" model="crm.lead.tag">
+            <field name="name">Thông tin</field>
+            <field name="color" eval="4"/>
+        </record>
+        <record id="categ_oppor5" model="crm.lead.tag">
+            <field name="name">Thiết kế</field>
+            <field name="color" eval="5"/>
+        </record>
+        <record id="categ_oppor6" model="crm.lead.tag">
+            <field name="name">Huấn luyện</field>
+            <field name="color" eval="6"/>
+        </record>
+        <record id="categ_oppor7" model="crm.lead.tag">
+            <field name="name">Tư vấn</field>
+            <field name="color" eval="7"/>
+        </record>
+        <record id="categ_oppor8" model="crm.lead.tag">
+            <field name="name">Khác</field>
+            <field name="color" eval="8"/>
+        </record>
+
+        <!--  Demo Leads -->
+        <record id="crm_case_1" model="crm.lead">
+            <field name="create_date" eval="DateTime.now() - relativedelta(days=8)"/>
+            <field name="type">lead</field>
+            <field name="name">Nội thất văn phòng câu lạc bộ</field>
+            <field name="contact_name">Lê Nhật Quang</field>
+            <field name="partner_name">Baboom Club</field>
+            <field name="email_from">le_nhat_quang@baboomclub.com</field>
+            <field name="function">Quản lí thực tập</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="street">54 Phạm Ngọc Thạch</field>
+            <field name="phone">+84 1 25 54 45 69</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor6])]"/>
+            <field name="priority">1</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date_open" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d %H:%M')"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+        </record>
+        <record id="msg_case1_1" model="mail.message">
+            <field name="subject">Thắc mắc</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_1"/>
+            <field name="author_id" ref="base.partner_admin"/>
+            <field name="email_from">le_nhat_quang@baboomclub.com</field>
+            <field name="body"><![CDATA[<p>Xin chào,<br />
+            Tôi là Lê Nhật Quang từ Baboom Club. Tôi quan tâm để tham dự một khóa đào tạo được tổ chức trong công ty của bạn.<br />
+            Bạn có thể gửi cho tôi chi tiết về khoá đào tạo?</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+
+        <record id="crm_case_2" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=8)"/>
+            <field name="type">lead</field>
+            <field name="name">Thiết kế phần mềm</field>
+            <field name="contact_name">Đào Kim Ngân</field>
+            <field name="partner_name">The Oil Company</field>
+            <field name="email_from">kn@oilcompany.com</field>
+            <field name="function">Quản lý mua hàng</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Đà Nẵng</field>
+            <field name="street">333/45 Chu Văn An</field>
+            <field name="phone">+84 1 25 54 45 69</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor2])]"/>
+            <field name="priority">1</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date_open" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d %H:%M')"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_christmas_special"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_newsletter"/>
+        </record>
+        <record id="msg_case2_1" model="mail.message">
+            <field name="subject">Cần thông tin chi tiết</field>
+            <field name="model">crm.lead</field>
+            <field name="author_id" ref="base_demo.partner_demo"/>
+            <field name="res_id" ref="crm_case_2"/>
+            <field name="body">Muốn biết các tính năng và lợi ích của việc sử dụng phần mềm mới.</field>
+            <field name="message_type">comment</field>
+        </record>
+
+        <record id="crm_case_3" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=2)"/>
+            <field name="type">lead</field>
+            <field name="name">Giá cho 25 cái bàn</field>
+            <field name="contact_name">Nguyễn Toàn Phát</field>
+            <field name="partner_name">The Kompany</field>
+            <field name="email_from">contact@thekompany.com</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Cần Thơ</field>
+            <field name="street">74 An Dương Vương</field>
+            <field name="phone">+1 555 754 3010</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4, categ_oppor5])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date_open" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d %H:%M')"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_google_adwords"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_4" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=2)"/>
+            <field name="type">lead</field>
+            <field name="name">Ghế dựa cao cấp</field>
+            <field name="contact_name">Phạm Thị Thùy Trang</field>
+            <field name="partner_name">Ánh Dương</field>
+            <field name="email_from">hmc@anhduong.com</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Vũng Tàu</field>
+            <field name="street">68 Hoàng Diệu</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor5])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="date_open" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d %H:%M')"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_banner"/>
+            <field name="source_id" ref="utm.utm_source_newsletter"/>
+        </record>
+
+        <record id="crm_case_5" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=4)"/>
+            <field name="type">lead</field>
+            <field name="name">Báo giá 50 cái ghế</field>
+            <field name="contact_name">Phạm Nhật Trường</field>
+            <field name="partner_name">Stonage IT</field>
+            <field name="email_from">truongpham@stonageit.com</field>
+            <field name="function">Quản lý mua hàng</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hà Nội</field>
+            <field name="street">50/22 Hàng Đẫy</field>
+            <field name="phone">+84 13 494 5005</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/><field name="country_id" ref="base.vn"/>
+            <field name="description"></field>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+        <record id="msg_case5_1" model="mail.message">
+            <field name="subject">Thắc mắc</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_5"/>
+            <field name="author_id" ref="base.partner_admin"/>
+            <field name="email_from">truongpham@stonageit.com</field>
+            <field name="body"><![CDATA[<p>Chào,<br />
+Có thể gửi cho tôi báo giá của 20 cái máy tính đi kèm với loa?<br />
+Cám ơn,<br />
+Phạm Nhật Trường,<br />
+Quản lý mua hàng<br />
+Stonage IT,<br />
+Contact: +84 13 494 5005</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+
+        <record id="crm_case_6" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=5)"/>
+            <field name="type">lead</field>
+            <field name="name">Opensides: Xin thông tin</field>
+            <field name="contact_name">Nguyễn Tuấn Kiệt</field>
+            <field name="partner_name">Opensides</field>
+            <field name="email_from">tuankiet@opensides.com</field>
+            <field name="function">Tư vấn</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor3, categ_oppor4])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+        </record>
+
+        <record id="crm_case_7" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=5)"/>
+            <field name="type">lead</field>
+            <field name="name">Gardner: Bàn làm việc văn phòng</field>
+            <field name="contact_name">Nguyễn Võ Gia Thoại</field>
+            <field name="partner_name">Gardner Group</field>
+            <field name="function">Nhà báo</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hà Nội</field>
+            <field name="street">77 Hoàn Kiếm</field>
+            <field name="phone">+84 55 21 55 5555</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4])]"/>
+            <field name="priority">0</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+        </record>
+
+        <record id="crm_case_8" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=8)"/>
+            <field name="type">lead</field>
+            <field name="name">Danh mục sản phẩm</field>
+            <field name="contact_name">Nguyễn Thị Hoài My</field>
+            <field name="partner_name">ESM Expert</field>
+            <field name="email_from">logan_expert@gmai.com</field>
+            <field name="function">Bán hàng</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4, categ_oppor8])]"/>
+            <field name="priority">1</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+        </record>
+        <record id="msg_case8_1" model="mail.message">
+            <field name="subject">Thắc mắc</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_8"/>
+            <field name="author_id" ref="base.partner_admin"/>
+            <field name="email_from">logan_expert@gmai.com</field>
+            <field name="body"><![CDATA[<p>Xin chào,<br />
+Vui lòng gửi cho chúng tôi danh mục sản phảm của công ty?<br />
+Cám ơn,<br />
+Nguyễn Thị Hoài My<br />
+ESM Expert<br />]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+
+        <record id="crm_case_9" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=4)"/>
+            <field name="type">lead</field>
+            <field name="name">Nội thất văn phòng</field>
+            <field name="contact_name">Đinh Thanh Tùng</field>
+            <field name="partner_name">Marketing Business</field>
+            <field name="email_from">tung@marketing-business.com</field>
+            <field name="function">Bán hàng</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Đà Nẵng</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4, categ_oppor7])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base_demo.user_demo"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+        </record>
+
+        <record id="crm_case_10" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=2)"/>
+            <field name="type">lead</field>
+            <field name="name">Thông tin máy tính</field>
+            <field name="contact_name">Hồ Hải Hồ</field>
+            <field name="partner_name">Solar IT</field>
+            <field name="function">Thiết kế y khoa</field>
+            <field name="email_from">hhh@solar.com</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base_demo.user_demo"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+        </record>
+        <record id="msg_case10_1" model="mail.message">
+            <field name="subject">Thắc mắc</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_10"/>
+            <field name="author_id" ref="base.partner_admin"/>
+            <field name="email_from">hhh@solar.com</field>
+            <field name="body"><![CDATA[<p>Xin chào,<br />
+Minh họa y tế muốn biết thêm về đặc điểm kỹ thuật và giá thành máy tính xách tay của công ty bạn.<br />
+Cám ơn,<br />
+Hồ Hồ</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+
+        <record id="crm_case_11" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=5)"/>
+            <field name="type">lead</field>
+            <field name="name">Dự toán cho nội thất văn phòng</field>
+            <field name="contact_name">Nguyễn Hoàng Phúc</field>
+            <field name="partner_name">Công ty TNHH Popo</field>
+            <field name="email_from">phuc@popo.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_1"/>
+            <field name="function">Tư vấn chức năng</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor7])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+        </record>
+
+        <record id="crm_case_12" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=8)"/>
+            <field name="type">lead</field>
+            <field name="name">Báo giá 100 cái bàn</field>
+            <field name="contact_name">Bùi Hoàng Khai</field>
+            <field name="partner_name">Incom Corporation</field>
+            <field name="email_from">khaibui00@ic.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_1"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <!-- Call Function to Cancel the leads (set as Dead) -->
+        <function model="crm.lead" name="action_set_lost"
+            eval="[[ref('crm_case_7'), ref('crm_case_9'), ref('crm_case_11'), ref('crm_case_12')]]"
+            context="{'install_mode': True}"/>
+
+        <!-- Demo Opportunities -->
+        <record id="crm_case_13" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Báo giá 12 cái bàn</field>
+            <field name="planned_revenue">40000</field>
+            <field name="probability">10.0</field>
+            <field name="contact_name">Nguyễn Hồng Duy</field>
+            <field name="partner_name">Rediff Mail</field>
+            <field name="email_from">hong_duy@rediffmail.com</field>
+            <field name="city">Hà Nội</field>
+            <field name="street">189  Hồ Tây</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead1"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_14" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Dự án thiết kế văn phòng</field>
+            <field name="color">7</field>
+            <field name="planned_revenue">24000</field>
+            <field name="probability">10.0</field>
+            <field name="partner_name">Công ty TNHH Popo</field>
+            <field name="email_from">info@popo.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_2"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="zip">1300</field>
+            <field name="street">88 Nam Kỳ Khởi Nghĩa</field>
+            <field name="phone">+84 10 588 558</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor2])]"/>
+            <field name="priority">2</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead1"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_15" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Thông tin về dịch vụ</field>
+            <field name="planned_revenue">25000</field>
+            <field name="probability">30.0</field>
+            <field name="partner_id" ref="base_demo.res_partner_2"/>
+            <field name="email_from">virginie@agrolait.com</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="street">88 Nam Kỳ Khởi Nghĩa</field>
+            <field name="phone">+84 10 588 558</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=1)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead2"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_newsletter"/>
+        </record>
+        <record id="msg_case15_attach1" model="ir.attachment">
+            <field name="datas">bWlncmF0aW9uIHRlc3Q=</field>
+            <field name="name">Thongtin.doc</field>
+            <field name="res_model">crm.lead</field>
+            <field name="res_id" ref="crm_case_15"/>
+        </record>
+        <record id="msg_case15_1" model="mail.message">
+            <field name="subject">Kế hoạch mua máy chủ RedHat</field>
+
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_15"/>
+            <field name="author_id" ref="base.partner_admin"/>
+            <field name="email_from">virginie@agrolait.fr</field>
+            <field name="body"><![CDATA[<div>
+            <p>Xin chào,</p>
+            <p>Tôi quan tâm đến các sản phẩm của công ty bạn và tôi dự định mua một máy tính xách tay mới có công nghệ mới nhất cũng như giá cả phải chăng.</p>
+            <p>Bạn có thể vui lòng gửi cho tôi danh mục sản phẩm?</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+        <record id="msg_case15_2" model="mail.message">
+            <field name="subject">Trả lời: Kế hoạch mua máy chủ RedHat</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_15"/>
+            <field name="author_id" ref="base_demo.partner_demo"/>
+            <field name="body"><![CDATA[<p>Chào ông/bà,<br/>
+            Cảm ơn đã thể hiện sự quan tâm đến các sản phẩm của chúng tôi! Theo yêu cầu, tôi gửi cho bạn danh mục sản phẩm của chúng tôi.<br />
+            Để có thể tinh chỉnh giải pháp, chúng tôi muốn biết nhu cầu chính xác. Bằng cách này, chúng tôi sẽ có thể giúp bạn chọn cơ sở hạ tầng phù hợp theo yêu cầu của bạn.<br/>
+            Trân trọng,</p>]]></field>
+            <field name="parent_id" ref="msg_case15_1"/>
+            <field name="message_type">comment</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+            <field name="attachment_ids" eval="[(6, 0, [ref('msg_case15_attach1')])]"/>
+        </record>
+        <!--Main attachment is usually registered by message_post, so here we must set it manually-->
+        <record id="crm_case_15" model="crm.lead">
+            <field name="message_main_attachment_id" ref="msg_case15_attach1"/>
+        </record>
+        <record id="msg_case15_3" model="mail.message">
+            <field name="subject">Trả lời: Kế hoạch mua máy chủ RedHat</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_15"/>
+            <field name="email_from">virginie@agrolait.fr</field>
+            <field name="author_id" ref="base.partner_admin"/>
+            <field name="body"><![CDATA[<p>Cảm ơn thông tin! <br /> Tôi đã hỏi một thông số kỹ thuật chính xác cho chuyên gia kỹ thuật của chúng tôi. Đây là những gì chúng ta cần chính xác:</p>
+            <ul>
+                <li> Sao lưu hàng tuần, vào mỗi thứ Hai </li>
+                <li> Thời gian sao lưu không phải là điểm chặn đối với chúng tôi, vì chúng tôi đóng cửa cả thứ Hai, để lại đủ thời gian để thực hiện sao lưu </li>
+                <li> Độ tin cậy là rất quan trọng; chúng tôi cần máy chủ dự phòng và dung lượng rollback </li>
+                <li> Tổng dung lượng khoảng 2 TB </li>
+            </ul>
+            <p>Trân trọng,</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+            <field name="parent_id" ref="msg_case15_1"/>
+        </record>
+        <record id="msg_case15_4" model="mail.message">
+            <field name="subject">Trả lời: Kế hoạch mua máy chủ RedHat</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_15"/>
+            <field name="author_id" ref="base_demo.partner_demo"/>
+            <field name="body"><![CDATA[<p>Xin chào</p>
+            <p> Sau khi thảo luận với các chuyên gia kỹ thuật của chúng tôi, đây là lời đề nghị của YourCompany. Chúng tôi tin rằng nó sẽ đáp ứng mọi yêu cầu bạn có trong đầu. Xin vui lòng liên hệ với tôi cho bất kỳ chi tiết hoặc chi tiết kỹ thuật nào không đủ rõ ràng cho bạn. </p>
+            <p> Lưu ý rằng theo thỏa thuận trên điện thoại, chúng tôi cung cấp cho bạn giảm giá <b> 10% cho phần cứng </b>! </p>
+            <p>Trân trọng,</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+            <field name="parent_id" ref="msg_case15_1"/>
+        </record>
+
+        <record id="crm_case_16" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=2)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Global Solutions: Nội thất</field>
+            <field name="planned_revenue">3800</field>
+            <field name="probability">90.0</field>
+            <field name="contact_name">Nguyễn Thành Đạt</field>
+            <field name="partner_name">Global Solutions</field>
+            <field name="partner_id" ref="base_demo.res_partner_4"/>
+            <field name="city">Đà Nẵng</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor5])]"/>
+            <field name="priority">2</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=1)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead2"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+        </record>
+
+        <record id="crm_case_17" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=3)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Balmer Inc: Nhà phân phối tiềm năng</field>
+            <field name="planned_revenue">1000</field>
+            <field name="probability">35.0</field>
+            <field name="partner_name">BalmerInc S.A.</field>
+            <field name="contact_name">Mai Huyền Đức</field>
+            <field name="email_from">huyen_duc@balmer.inc.sa</field>
+            <field name="phone">+84 469 12 45 78</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hà Nội</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor3,categ_oppor4])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead2"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+        <record id="msg_case17_1" model="mail.message">
+            <field name="subject">Danh mục để gửi</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_17"/>
+            <field name="author_id" ref="base_demo.partner_demo"/>
+            <field name="body"><![CDATA[<p>Họ chỉ muốn thông tin về giá dịch vụ của chúng tôi. Tôi nghĩ gửi danh mục của chúng tôi là đủ.</p>]]></field>
+            <field name="message_type">comment</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+
+        <record id="crm_case_18" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=7)"/>
+            <field name="type">opportunity</field>
+            <field name="name">DeltaPC: 10 máy bàn</field>
+            <field eval="35000" name="planned_revenue"/>
+            <field eval="25.0" name="probability"/>
+            <field name="contact_name">Phạm Hoàng Khang</field>
+            <field name="email_from">info@deltapc.com</field>
+            <field name="partner_name">Delta PC</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="street">3661 NTMK</field>
+            <field name="partner_id" ref="base_demo.res_partner_4"/>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4,categ_oppor6])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=3)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead2"/>
+            <field eval="1" name="active"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_newsletter"/>
+        </record>
+        <record id="msg_case18_1" model="mail.message">
+            <field name="subject">Thắc mắc</field>
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_18"/>
+            <field name="author_id" ref="base_demo.res_partner_4"/>
+            <field name="body"><![CDATA[<p>Xin chào!<br />
+            Tôi là Leland Martinez, từ Delta PC. Có thể bạn nhớ, chúng tôi đã nói chuyện một chút vào tháng trước tại hội nghị quốc tế này. <br />
+            Chúng tôi muốn tham gia một khóa đào tạo, nhưng chúng tôi không chắc chắn về những gì chúng tôi có thể yêu cầu. Có lẽ chúng ta nên gặp và nói về điều đó? <br />
+            Trân trọng,</p>]]></field>
+            <field name="message_type">email</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+        </record>
+        <record id="msg_case18_2" model="mail.message">
+            <field name="model">crm.lead</field>
+            <field name="res_id" ref="crm_case_18"/>
+            <field name="author_id" ref="base_demo.partner_demo"/>
+            <field name="body"><![CDATA[<p>Có vẻ rất thú vị. Như bạn nói, trước hết chúng tôi sẽ phải xác định chính xác những gì đào tạo sẽ về, và nhu cầu chính xác của bạn.</p>]]></field>
+            <field name="message_type">comment</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+            <field name="parent_id" ref="msg_case18_1"/>
+        </record>
+
+        <record id="crm_case_19" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=7)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Bàn có thể tùy chỉnh</field>
+            <field name="color">3</field>
+            <field name="planned_revenue">15000</field>
+            <field name="probability">65.5</field>
+            <field name="contact_name">Trần Hữu Lộc</field>
+            <field name="partner_name">Vauxoo</field>
+            <field name="email_from">vauxoo@gmail.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_12"/>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="street">23 Hoàng Diệu</field>
+            <field name="street2">500 Hoàng Diệu</field>
+            <field name="phone">+84 212 681 0538</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=1)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="date_closed" eval="(DateTime.today() - relativedelta(months=3)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+        </record>
+
+        <record id="crm_case_20" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=7)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Hợp đồng phân phối</field>
+            <field name="planned_revenue">19800</field>
+            <field name="contact_name">Nguyễn Quỳnh Trân</field>
+            <field name="partner_name">Epic Technologies</field>
+            <field name="email_from">tranguyen@tech.info</field>
+            <field name="partner_id" ref="base_demo.res_partner_3"/>
+            <field name="country_id" ref="base.vn"/>
+            <field name="zip">60610</field>
+            <field name="city">Hải Phòng</field>
+            <field name="phone">+84 12 349 2324</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4,categ_oppor8])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+        </record>
+
+        <record id="crm_case_21" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Thiết kế và kiến trúc văn phòng</field>
+            <field name="planned_revenue">9000</field>
+            <field name="partner_id" ref="base_demo.res_partner_4"/>
+            <field name="city">Hải Phòng</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor7])]"/>
+            <field name="priority">2</field>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_services"/>
+            <field name="medium_id" ref="utm.utm_medium_phone"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_22" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=8)"/>
+            <field name="type">opportunity</field>
+            <field name="name">5 ghế văn phòng</field>
+            <field name="planned_revenue">5600</field>
+            <field name="probability">30.0</field>
+            <field name="contact_name">Nguyễn Sông Vịnh</field>
+            <field name="partner_name">Nebula Business</field>
+            <field name="partner_id" ref="base_demo.res_partner_12"/>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor3])]"/>
+            <field name="priority">1</field>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_services"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_23" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=7)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Truy cập vào danh mục trực tuyến</field>
+            <field name="planned_revenue">2000</field>
+            <field name="probability">80.0</field>
+            <field name="partner_id" ref="base_demo.res_partner_18"/>
+            <field name="priority">0</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor3])]"/>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_fall_drive"/>
+            <field name="medium_id" ref="utm.utm_medium_direct"/>
+            <field name="source_id" ref="utm.utm_source_newsletter"/>
+        </record>
+
+        <record id="crm_case_24" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=7)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Cần 20 cái bàn</field>
+            <field name="planned_revenue">60000</field>
+            <field name="probability">90.0</field>
+            <field name="email_from">info@baga.com</field>
+            <field name="city">Hải Phòng</field>
+            <field name="priority">0</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor7])]"/>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_services"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_25" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Không gian mở hiện đại</field>
+            <field name="planned_revenue">4500</field>
+            <field name="probability">60</field>
+            <field name="contact_name">Lê Thái Bình</field>
+            <field name="partner_name">E-light Industry</field>
+            <field name="email_from">henry_le@elight.com</field>
+            <field name="city">Hải Phòng</field>
+            <field name="street">22 Hoa Phượng</field>
+            <field name="priority">2</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor4])]"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_services"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_26" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=6)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Thiết kế không gian mở</field>
+            <field name="planned_revenue">11000</field>
+            <field name="probability">45</field>
+            <field name="partner_name">Công ty TNHH Popo</field>
+            <field name="email_from">info@popo.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_2"/>
+            <field name="street">88 Nam Kỳ Khởi Nghĩa</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="zip">1300</field>
+            <field name="priority">2</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor2])]"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=6)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_website"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_27" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Quan tâm đến sản phẩm của bạn</field>
+            <field name="planned_revenue">2000</field>
+            <field name="probability">80</field>
+            <field name="partner_name">Công ty TNHH Popo</field>
+            <field name="email_from">info@popo.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_2"/>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="zip">1300</field>
+            <field name="street">88 Nam Kỳ Khởi Nghĩa</field>
+            <field name="priority">2</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor2])]"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=6)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead3"/>
+        </record>
+
+        <record id="crm_case_28" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - timedelta(days=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Cung cấp một văn phòng 60m²</field>
+            <field name="planned_revenue">7500</field>
+            <field name="probability">20</field>
+            <field name="partner_name">Công ty TNHH Popo</field>
+            <field name="email_from">info@popo.com</field>
+            <field name="partner_id" ref="base_demo.res_partner_2"/>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="zip">1300</field>
+            <field name="street">88 Nam Kỳ Khởi Nghĩa</field>
+            <field name="priority">0</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1, categ_oppor5])]"/>
+            <field name="date_deadline" eval="DateTime.today() + relativedelta(days=12)"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="stage_id" ref="crm.stage_lead1"/>
+        </record>
+
+        <record id="crm_case_29" model="crm.lead">
+            <field name="create_date" eval="DateTime.now() - relativedelta(months=1)"/>
+            <field name="type">lead</field>
+            <field name="name">Văn phòng Câu lạc bộ Thêm Bàn làm việc</field>
+            <field name="contact_name">Lê Nhật Quang</field>
+            <field name="partner_name">Baboom Club</field>
+            <field name="email_from">le_nhat_quang@baboomclub.com</field>
+            <field name="function">Quản lí thực tập</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="zip">93190</field>
+            <field name="street">54 Phạm Ngọc Thạch</field>
+            <field name="phone">+84 1 25 54 45 69</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor6])]"/>
+            <field name="priority">1</field>
+            <field name="date_open" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d %H:%M')"/><field name="country_id" ref="base.vn"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+        </record>
+
+        <record id="crm_case_30" model="crm.lead">
+            <field name="create_date" eval="DateTime.now() - relativedelta(months=2)"/>
+            <field name="type">lead</field>
+            <field name="name">Nội thất trường đại học Acadia</field>
+            <field name="contact_name">Nguyễn Duy Khánh Nhật</field>
+            <field name="partner_name">Acadia College</field>
+            <field name="email_from">nhatnguyenduy@acadia.edu</field>
+            <field name="function">Giám đốc</field>
+            <field name="city">Hà Nội</field>
+            <field name="street">93 Trần Duy Hưng</field>
+            <field name="phone">+84 22 33 54 07</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor6])]"/>
+            <field name="priority">1</field>
+            <field name="date_open" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_mailing"/>
+        </record>
+
+        <record id="crm_case_31" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(months=1)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Báo gía cho 150 thảm</field>
+            <field name="planned_revenue">40000</field>
+            <field name="probability">10.0</field>
+            <field name="contact_name">Nguyễn Huỳnh Như</field>
+            <field name="email_from">nhu_nguyen@armyspy.com</field>
+            <field name="city">Trà Vinh</field>
+            <field name="street">1920 Trần Phú</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_32" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(months=2)"/>
+            <field name="type">opportunity</field>
+            <field name="name">Báo giá 600 cái ghế</field>
+            <field name="planned_revenue">22500</field>
+            <field name="probability">20.0</field>
+            <field name="contact_name">Nguyễn Huỳnh Như</field>
+            <field name="email_from">nhu_nguyen@armyspy.com</field>
+            <field name="city">Trà Vinh</field>
+            <field name="street">1920 Trần Phú</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_1" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(months=1)"/>
+            <field name="type">lead</field>
+            <field name="name">Hợp đồng giao hàng định kỳ</field>
+            <field name="planned_revenue">36221</field>
+            <field name="probability">20</field>
+            <field name="contact_name">Lâm Kim Quí</field>
+            <field name="email_from">qui123@itconsult.com</field>
+            <field name="city">Sóc Trăng</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_2" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(days=18)"/>
+            <field name="type">lead</field>
+            <field name="name">Cần thông tin về giá cả</field>
+            <field name="planned_revenue">28443</field>
+            <field name="probability">80</field>
+            <field name="contact_name">Nguyễn Thị Bích Liên</field>
+            <field name="email_from">liennguyen@theglobeandmail.com</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="street">1 Luỹ Bán Bích</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_3" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(days=24)"/>
+            <field name="type">lead</field>
+            <field name="name">Văn phòng mới của Photobug</field>
+            <field name="planned_revenue">88715</field>
+            <field name="probability">12</field>
+            <field name="contact_name">Ngô Văn Tính</field>
+            <field name="partner_name">Photobug</field>
+            <field name="email_from">tinh9@trellian.com</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_4" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(days=40)"/>
+            <field name="type">lead</field>
+            <field name="name">Nội thất có thương hiệu</field>
+            <field name="planned_revenue">7784</field>
+            <field name="probability">20</field>
+            <field name="contact_name">Huỳnh Kim Tuyến</field>
+            <field name="email_from">kim_tuyen@fastcompany.com</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="stage_id" ref="crm.stage_lead2"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_5" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(days=45)"/>
+            <field name="type">lead</field>
+            <field name="name">Thiết kế kệ mới</field>
+            <field name="planned_revenue">54587</field>
+            <field name="probability">81</field>
+            <field name="contact_name">Nguyễn Đình Bảo Bảo</field>
+            <field name="partner_name">Jaloo</field>
+            <field name="email_from">baobao@tinypic.com</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_6" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(days=48)"/>
+            <field name="type">lead</field>
+            <field name="name">Ghế văn phòng</field>
+            <field name="planned_revenue">5474</field>
+            <field name="probability">20</field>
+            <field name="contact_name">Nguyễn Đình Chương</field>
+            <field name="partner_name">Shufflebeat</field>
+            <field name="email_from">chuongnguyen@simplemachines.org</field>
+            <field name="city">Hà Nội</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_7" model="crm.lead">
+            <field name="create_date" eval="datetime.now() - relativedelta(days=80)"/>
+            <field name="type">lead</field>
+            <field name="name">Dọn dẹp thuê bao</field>
+            <field name="planned_revenue">11475</field>
+            <field name="probability">25</field>
+            <field name="contact_name">Trần Đăng Khoa</field>
+            <field name="partner_name">Realblab</field>
+            <field name="email_from">khoa@reuters.com</field>
+            <field name="city">Hà Nội</field>
+            <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+            <field name="priority">1</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+            <field name="medium_id" ref="utm.utm_medium_email"/>
+            <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_8" model="crm.lead">
+        <field name="create_date" eval="datetime.now() - relativedelta(days=37)"/>
+        <field name="type">lead</field>
+        <field name="name">Bàn làm việc tùy chỉnh (100 cái)</field>
+        <field name="planned_revenue">9987</field>
+        <field name="probability">20</field>
+        <field name="contact_name">Lê Thị Nhiếm</field>
+        <field name="partner_name">Muxo</field>
+        <field name="email_from">nhiem66@muxo.com</field>
+        <field name="city">Đà Nẵng</field>
+        <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+        <field name="priority">1</field>
+        <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+        <field name="team_id" ref="sales_team_demo.crm_team_1"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+        <field name="medium_id" ref="utm.utm_medium_email"/>
+        <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_9" model="crm.lead">
+        <field name="create_date" eval="datetime.now() - relativedelta(days=32)"/>
+        <field name="type">lead</field>
+        <field name="name">Cần một mức giá: khẩn cấp</field>
+        <field name="planned_revenue">4482</field>
+        <field name="probability">90</field>
+        <field name="contact_name">Hồ Hoàng Phong Nhả</field>
+        <field name="partner_name">Skibox</field>
+        <field name="email_from">nha_ho3@skibox.org</field>
+        <field name="city">Đà Nẵng</field>
+        <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+        <field name="priority">1</field>
+        <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+        <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+        <field name="medium_id" ref="utm.utm_medium_email"/>
+        <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_10" model="crm.lead">
+        <field name="create_date" eval="datetime.now() - relativedelta(days=18)"/>
+        <field name="type">lead</field>
+        <field name="name">Nội thất cho địa điểm mới</field>
+        <field name="planned_revenue">22500</field>
+        <field name="probability">20</field>
+        <field name="contact_name">Nguyễn Thị Mỹ Trân</field>
+        <field name="partner_name">Twinte</field>
+        <field name="email_from">tranguyen@dailymail.com</field>
+        <field name="city">Đà Nẵng</field>
+        <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+        <field name="priority">1</field>
+        <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+        <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+        <field name="medium_id" ref="utm.utm_medium_email"/>
+        <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+        <record id="crm_case_graph_11" model="crm.lead">
+        <field name="create_date" eval="datetime.now() - relativedelta(days=52)"/>
+        <field name="type">lead</field>
+        <field name="name">Hiện đại hóa văn phòng cũ</field>
+        <field name="planned_revenue">99755</field>
+        <field name="probability">20</field>
+        <field name="contact_name">Nguyễn Phước Hậu</field>
+        <field name="partner_name">Yozio</field>
+        <field name="email_from">hau@yozio.com</field>
+        <field name="city">Hồ Chí Minh</field>
+        <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+        <field name="priority">1</field>
+        <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+        <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+        <field name="medium_id" ref="utm.utm_medium_email"/>
+        <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+
+        <record id="crm_case_graph_12" model="crm.lead">
+        <field name="create_date" eval="datetime.now() - relativedelta(days=52)"/>
+        <field name="type">lead</field>
+        <field name="name">Báo giá cho 35 cái cửa sổ</field>
+        <field name="planned_revenue">41421</field>
+        <field name="probability">20</field>
+        <field name="contact_name">Huỳnh Phúc Khang</field>
+        <field name="partner_name">Gabcube</field>
+        <field name="email_from">khang_huynh@gmail.com</field>
+        <field name="city">Hà Nội</field>
+        <field name="tag_ids" eval="[(6, 0, [categ_oppor1])]"/>
+        <field name="priority">1</field>
+        <field name="date_deadline" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d %H:%M')"/>
+        <field name="campaign_id" ref="utm.utm_campaign_email_campaign_products"/>
+        <field name="medium_id" ref="utm.utm_medium_email"/>
+        <field name="source_id" ref="utm.utm_source_search_engine"/>
+        </record>
+
+
+        <!-- Call Function to set dome opportunities as Lost -->
+        <function model="crm.lead" name="action_set_lost"
+            eval="[[ref('crm_case_28')]]"
+            context="{'install_mode': True}"/>
+
+        <!-- Call Function to set some opportunities as Won -->
+        <function model="crm.lead" name="action_set_won"
+            eval="[[ref('crm_case_20'), ref('crm_case_23'), ref('crm_case_27')]]"
+            context="{'install_mode': True}"/>
+
+        <!-- Activities -->
+        <record id="activity_1" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_13" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call" />
+            <field name="summary">Cuộc họp để báo giá.</field>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_2" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_14" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Gửi danh mục qua email</field>
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_3" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_15" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Gọi để nhận yêu cầu hệ thống</field>
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_4" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_16" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=2)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Chuyển sang báo giá</field>
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_5" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_17" />
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=-1)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Gửi bảng giá dịch vụ của chúng tôi</field>
+            <field name="create_uid" ref="base.user_admin"/>
+        </record>
+        <record id="activity_6" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_18" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Gọi để được đào tạo</field>
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_7" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_19" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=-2)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Theo dõi đề xuất</field>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="create_uid" ref="base.user_admin"/>
+        </record>
+        <record id="activity_8" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_20" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d %H:%M')" />
+        </record>
+        <record id="activity_9" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_21" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=4)).strftime('%Y-%m-%d %H:%M')" />
+        </record>
+        <record id="activity_10" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_22" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=-2)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_11" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_23" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_12" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_24" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=2)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_13" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_25" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=0)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Cuộc gọi với dịch vụ kỹ thuật</field>
+            <field name="create_uid" ref="base.user_admin"/>
+            <field name="user_id" ref="base.user_admin"/>
+        </record>
+        <record id="activity_14" model="mail.activity">
+            <field name="res_id" ref="crm_demo.crm_case_26" />
+            <field name="res_model_id" ref="crm.model_crm_lead"/>
+            <field name="user_id" ref="base_demo.user_demo"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_email"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=0)).strftime('%Y-%m-%d %H:%M')" />
+            <field name="summary">Gửi danh mục qua email</field>
+            <field name="create_uid" ref="base.user_admin"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="res.users" id="base.user_admin">
+            <field name="odoobot_state">disabled</field>
+        </record>
+        <record id="base.main_company" model="res.company">
+            <field name="name">Công ty TNHH 2WA</field>
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="currency_id" ref="base.VND"/>
+        </record>
+
+        <record id="nhansu_partner" model="res.partner">
+            <field name="name">Lâm Thị Sự Nhân</field>
+            <field name="company_name">Công ty TNHH 2WA</field>
+            <field name="street">2 Nguyễn Thị Thập, Q7</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name='country_id' ref='base.vn'/>
+            <field name="tz">Asia/Ho_Chi_Minh</field>
+            <field name="phone">036 332 5332</field>
+            <field name="email">nhansu@2wa.vn</field>
+            <field name="website">www.2wa.vn</field>
+        </record>
+
+        <record id="partner_demo" model="res.partner">
+            <field name="name">Nguyễn Tất Thành</field>
+            <field name="company_name">Công ty TNHH 2WA</field>
+            <field name="street">645 Trần Xuân Soạn, Q7</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="city">Hồ Chí Minh</field>
+            <field name='country_id' ref='base.vn'/>
+            <field name="tz">Asia/Ho_Chi_Minh</field>
+            <field name="phone">036 747 2525</field>
+            <field name="email">contact@2wa.vn</field>
+            <field name="website">www.2wa.vn</field>
+        </record>
+
+        <record id="nhansu_user" model="res.users">
+            <field name="partner_id" ref="nhansu_partner"/>
+            <field name="login">nhansu</field>
+            <field name="password">1</field>
+            <field name="signature" type="xml"><span>Chữ ký của Nhân sự</span></field>
+            <field name="odoobot_state">disabled</field>
+            <field name="notification_type">email</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="base_demo/static/img/employee_vad-image.jpg"/>
+        </record>
+
+        <record id="user_demo" model="res.users">
+            <field name="partner_id" ref="partner_demo"/>
+            <field name="login">nhanvien</field>
+            <field name="password">1</field>
+            <field name="signature" type="xml"><span>Chữ ký của nhân viên</span></field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image_1920" type="base64" file="base_demo/static/img/user_demo-image.jpg"/>
+            <field name="notification_type">email</field>
+            <field name="odoobot_state">disabled</field>
+        </record>
+
+        <record id="base.main_partner" model="res.partner">
+            <field name="name">Công ty TNHH 2WA</field>
+            <field name="company_name">Công ty TNHH 2WA</field>
+            <field name="street">123 Nguyễn Thị Minh Khai</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="lang">vi_VN</field>
+            <field name="tz">Asia/Ho_Chi_Minh</field>
+            <field name="email">2wa@2wa.com</field>
+            <field name="phone">(+84) 1687561830</field>
+        </record>
+
+        <record model="res.partner" id="base.partner_root">
+            <field name="email">congty@2wa.com</field>
+            <field name="tz">Asia/Ho_Chi_Minh</field>
+        </record>
+
+        <record model="res.partner" id="base.partner_admin">
+            <field name="name">Lý Thành Công</field>
+            <field name="company_name">Công ty TNHH 2WA</field>
+            <field name="street">215 Thảo Điền</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="zip">18503</field>
+            <field name='country_id' ref='base.vn'/>
+            <field name="phone">+1 555-555-5555</field>
+            <field name="email">lythanhcong@2wa.com</field>
+            <field name="lang">vi_VN</field>
+            <field name="tz">Asia/Ho_Chi_Minh</field>
+            <field name="image_1920" type="base64" file="base_demo/static/img/partner_root-image.jpg"/>
+        </record>
+
+
+        <!-- Portal : partner and user -->
+        <record id="partner_demo_portal" model="res.partner">
+            <field name="name">Hoàng Hoa Thám</field>
+            <field name="email">colong@gmail.com</field>
+            <field name="street">858 Tôn Đản</field>
+            <field name="country_id" ref="base.vi"/>
+            <field name="company_name">Công ty TNHH 2WA</field>
+            <field name="image_1920" type="base64" file="base_demo/static/img/partner_demo_portal.jpg"/>
+            <field name="phone">(683)-556-5104</field>
+        </record>
+
+        <record id="demo_user0" model="res.users" context="{'no_reset_password': True}">
+            <field name="partner_id" ref="partner_demo_portal"/>
+            <field name="login">khackhang</field>
+            <field name="password">1</field>
+            <field name="signature"><![CDATA[<span>-- <br/>Khách hàng ký tên</span>]]></field>
+            <field name="groups_id" eval="[(5,)]"/><!-- Avoid auto-including this user in any default group -->
+        </record>
+
+        <record id="base.group_portal" model="res.groups"><!-- Add the demo user to the portal (and therefore to the portal member group) -->
+            <field name="users" eval="[(4,ref('demo_user0'))]"/>
+        </record>
+
+    </data>
+</odoo>

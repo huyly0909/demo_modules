@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <data noupdate="0">-->
+        <record id="res_partner_category_0" model="res.partner.category">
+            <field name="name">Nhà cung cấp</field>
+            <field name="color" eval="2"/>
+        </record>
+        <record id="res_partner_category_2" model="res.partner.category">
+            <field name="name">Tiềm năng</field>
+            <field name="color" eval="3"/>
+        </record>
+        <record id="res_partner_category_3" model="res.partner.category">
+            <field name="name">Nhân viên</field>
+            <field name="color" eval="4"/>
+        </record>
+        <record id="res_partner_category_8" model="res.partner.category">
+            <field name="name">Dịch vụ tư vấn</field>
+            <field name="color" eval="5"/>
+        </record>
+        <record id="res_partner_category_11" model="res.partner.category">
+            <field name="name">Dịch vụ</field>
+            <field name="color" eval="7"/>
+        </record>
+        <record id="res_partner_category_12" model="res.partner.category">
+            <field name="name">Văn phòng phẩm</field>
+            <field name="parent_id" ref="res_partner_category_0"/>
+            <field name="color" eval="8"/>
+        </record>
+        <record id="res_partner_category_14" model="res.partner.category">
+            <field name="name">Nhà sản xuất bàn</field>
+            <field name="color" eval="10"/>
+            <field name="parent_id" ref="res_partner_category_0"/>
+        </record>
+
+       <!--
+        Resource: res.partner
+        -->
+
+        <record id="res_partner_1" model="res.partner">
+            <field name="name">Wood Corner</field>
+            <field eval="[(6, 0, [ref('res_partner_category_14'), ref('res_partner_category_12')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">455 Nguyễn Thị Minh Khai</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="email">wood.corner26@gmail.com</field>
+            <field name="phone">(623)-853-7197</field>
+            <field name="website">http://www.wood-corner.com</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_1-image.png"/>
+        </record>
+        <record id="res_partner_2" model="res.partner">
+            <field name="name">Deco Addict</field>
+            <field eval="[(6, 0, [ref('base_demo.res_partner_category_14')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">445 Tam Hà</field>
+            <field name="city">Pleasant Hill</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="email">deco.addict82@gmail.com</field>
+            <field name="phone">(603)-996-3829</field>
+            <field name="website">http://www.deco-addict.com</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_2-image.png"/>
+        </record>
+        <record id="res_partner_3" model="res.partner">
+            <field name="name">Gemini Furniture</field>
+            <field eval="[(6, 0, [ref('res_partner_category_8'), ref('res_partner_category_14')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">317 Nguyễn Trãi</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="email">gemini.furniture39@gmail.com</field>
+            <field name="phone">(941)-284-4875</field>
+            <field name="website">http://www.gemini-furniture.com/</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_3-image.png"/>
+        </record>
+
+        <record id="res_partner_4" model="res.partner">
+            <field name="name">Ready Mat</field>
+            <field eval="[(6, 0, [ref('res_partner_category_14'), ref('res_partner_category_12')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">7500 Lê Thánh Tôn</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="email">ready.mat28@gmail.com</field>
+            <field name="phone">(803)-873-6126</field>
+            <field name="website">http://www.ready-mat.com/</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_4-image.png"/>
+        </record>
+
+        <record id="res_partner_10" model="res.partner">
+            <field name="name">The Jackson Group</field>
+            <field name="is_company">1</field>
+            <field name="street">1611 Lê Hồng Phong</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="email">jackson.group82@gmail.com</field>
+            <field name="phone">(334)-502-1024</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_10-image.jpg"/>
+        </record>
+
+        <record id="res_partner_12" model="res.partner">
+            <field name="name">Azure Interior</field>
+            <field eval="[(6, 0, [ref('res_partner_category_11')])]" name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="street">4557 D2</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="phone">(870)-931-0505</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="email">azure.Interior24@gmail.com</field>
+            <field name="website">http://www.azure-interior.com</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_12-image.png"/>
+        </record>
+
+        <record id="res_partner_18" model="res.partner">
+            <field name="name">Lumber Inc</field>
+            <field name="is_company">1</field>
+            <field name="street">1337 Hàng Xanh</field>
+            <field name="city">Hồ Chí Minh</field>
+            <field name="email">lumber-inv92@gmail.com</field>
+            <field name="phone">(828)-316-0593</field>
+            <field name="country_id" ref="base.vn"/>
+            <field name="website">http://www.lumber-inc.com</field>
+            <field name="image_1920" type="base64" file="base/static/img/res_partner_18-image.png"/>
+        </record>
+
+        <record id="res_partner_address_1" model="res.partner">
+            <field name="name">Trần Thị Nhi</field>
+            <field name="parent_id" eval="ref('res_partner_1')"/>
+            <field name="function">Quản lý dịch vụ</field>
+            <field name="email">nhitran80@gmail.com</field>
+            <field name="phone">(846)-523-2111</field>
+        </record>
+        <record id="res_partner_address_2" model="res.partner">
+            <field name="name">Bùi Hoàng Rát</field>
+            <field name="parent_id" eval="ref('res_partner_1')"/>
+            <field name="function">Quản lý cửa hàng</field>
+            <field name="email">hoangrat@gmail.com</field>
+            <field name="phone">(976)-397-4091</field>
+        </record>
+        <record id="res_partner_address_3" model="res.partner">
+            <field name="name">Huỳnh Sùng Siêu</field>
+            <field name="parent_id" eval="ref('res_partner_2')"/>
+            <field name="function">Tư vấn chức năng</field>
+            <field name="email">huynhsieu51@gmail.com</field>
+            <field name="phone">(132)-553-7242</field>
+        </record>
+        <record id="res_partner_address_4" model="res.partner">
+            <field name="name">Nguyễn Văn Trễ</field>
+            <field name="parent_id" eval="ref('res_partner_2')"/>
+            <field name="function">Chuyên viên phân tích</field>
+            <field name="email">trenguyen@gmail.com</field>
+            <field name="phone">(145)-138-3401</field>
+        </record>
+        <record id="res_partner_address_5" model="res.partner">
+            <field name="name">Trần Thị Phương Trinh</field>
+            <field name="parent_id" eval="ref('res_partner_3')"/>
+            <field name="function">Quản lý tiếp thị</field>
+            <field name="email">trinh58@gmail.com</field>
+            <field name="phone">(943)-352-2555</field>
+        </record>
+        <record id="res_partner_address_7" model="res.partner">
+            <field name="name">Nguyễn Lâm Tuấn</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="function">Giám sát sản xuất</field>
+            <field name="email">tuanguyen123@gmail.com</field>
+            <field name="phone">(915)-498-5611</field>
+        </record>
+        <record id="res_partner_address_10" model="res.partner">
+            <field name="name">Trương Thanh Tùng</field>
+            <field name="parent_id" eval="ref('res_partner_3')"/>
+            <field name="function">Chuyên viên tư vấn</field>
+            <field name="email">tunhtruongthanh74@gmail.com</field>
+            <field name="phone">(829)-386-3277</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="res_partner_address_11" model="res.partner">
+            <field name="name">Châu Kim Anh</field>
+            <field name="parent_id" eval="ref('res_partner_3')"/>
+            <field name="function">Giám đốc</field>
+            <field name="email">chaukimanh15@gmail.com</field>
+            <field name="phone">(379)-167-2040</field>
+        </record>
+        <record id="res_partner_address_13" model="res.partner">
+            <field name="name">Trần Thị Ngọc Duyên</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="function">Chuyên viên cao cấp</field>
+            <field name="email">ngocduyen96@gmail.com</field>
+            <field name="phone">(215)-379-4865</field>
+        </record>
+        <record id="res_partner_address_14" model="res.partner">
+            <field name="name">Hồ Thành Đạt</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="function">Chuyên viên phân tích</field>
+            <field name="email">dathothanh8@gmail.com</field>
+            <field name="phone">(938)-175-2048</field>
+        </record>
+        <record id="res_partner_address_15" model="res.partner">
+            <field name="name">Trần Thị Mỷ Hảo</field>
+            <field name="function">Giám đốc sáng tạo</field>
+            <field name="parent_id" eval="ref('res_partner_12')"/>
+            <field name="email">haotran55@gmail.com</field>
+            <field name="phone">(355)-687-3262</field>
+        </record>
+        <record id="res_partner_address_16" model="res.partner">
+            <field name="name">Trịnh Thị Hạnh</field>
+            <field name="function">Giám đốc</field>
+            <field name="parent_id" eval="ref('res_partner_12')"/>
+            <field name="email">nicole.ford75@gmail.com</field>
+            <field name="phone">(946)-638-6034</field>
+        </record>
+        <record id="res_partner_address_17" model="res.partner">
+            <field name="name">Văn Công Kha</field>
+            <field name="function">Đối tác quản lý</field>
+            <field name="parent_id" eval="ref('res_partner_10')"/>
+            <field name="email">khavancong11@gmail.com</field>
+            <field name="phone">(198)-539-4948</field>
+        </record>
+        <record id="res_partner_address_18" model="res.partner">
+            <field name="name">Lê Gia Khang</field>
+            <field name="function">Chuyên viên tư vấn</field>
+            <field name="parent_id" eval="ref('res_partner_10')"/>
+            <field name="email">legiakhang@gmail.com</field>
+            <field name="phone">(336)-723-6569</field>
+        </record>
+        <record id="res_partner_address_24" model="res.partner">
+            <field name="name">Lê Thị Mộng Linh</field>
+            <field name="function">Nhà phân tích hệ thống</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="email">monglinhle@gmail.com</field>
+            <field name="phone">(186)-612-6561</field>
+        </record>
+        <record id="res_partner_address_25" model="res.partner">
+            <field name="name">Phạm Cẫm Linh</field>
+            <field name="parent_id" eval="ref('res_partner_3')"/>
+            <field name="function">Thư ký đặt hàng</field>
+            <field name="email">linhphamcam@gmail.com</field>
+            <field name="phone">(561)-239-1744</field>
+        </record>
+        <record id="res_partner_address_27" model="res.partner">
+            <field name="name">Huỳnh Thị Tuyết Minh</field>
+            <field name="parent_id" eval="ref('res_partner_1')"/>
+            <field name="function">Lập trình viên</field>
+            <field name="email">minhhuynhthituyet@gmail.com</field>
+            <field name="phone">(102)-834-1602</field>
+        </record>
+        <record id="res_partner_address_28" model="res.partner">
+            <field name="name">Nguyễn Thị Yến Nhi</field>
+            <field name="function">Điều hành kinh doanh</field>
+            <field name="parent_id" eval="ref('res_partner_12')"/>
+            <field name="email">nhi_nguyen_thi_yen@gmail.com</field>
+            <field name="phone">(255)-595-8393</field>
+        </record>
+        <record id="res_partner_address_30" model="res.partner">
+            <field name="name">Nguyễn Hữu Phước</field>
+            <field name="function">Tư vấn chức năng</field>
+            <field name="parent_id" eval="ref('res_partner_18')"/>
+            <field name="email">phuoc_nguyen35@gmail.com</field>
+            <field name="phone">(443)-648-9155</field>
+        </record>
+        <record id="res_partner_address_31" model="res.partner">
+            <field name="name">Trần Văn Quân</field>
+            <field name="parent_id" eval="ref('res_partner_2')"/>
+            <field name="function">Đại diện bán hàng</field>
+            <field name="email">quan_idol28@gmail.com</field>
+            <field name="phone">(223)-399-7637</field>
+        </record>
+        <record id="res_partner_address_32" model="res.partner">
+            <field name="name">Đặng Thị Tiểu Sương</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="function">Quản lý bán hàng</field>
+            <field name="email">suong_dang999@gmail.com</field>
+            <field name="phone">(430)-371-7293</field>
+        </record>
+        <record id="res_partner_address_33" model="res.partner">
+            <field name="name">Bùi Văn Thảo</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="function">Quản lý tài chính</field>
+            <field name="email">thao_bui_ban@gmail.com</field>
+            <field name="phone">(225)-148-7811</field>
+        </record>
+        <record id="res_partner_address_34" model="res.partner">
+            <field name="name">Huỳnh Quốc Thịnh</field>
+            <field name="parent_id" eval="ref('res_partner_4')"/>
+            <field name="function">Quản lý kiến thức</field>
+            <field name="email">thinh_thinh_huynh@gmail.com</field>
+            <field name="phone">(840)-944-8661</field>
+        </record>
+        <record id="res_partner_main1" model="res.partner">
+            <field name="name">Công Tiến Trình</field>
+            <field name="parent_id" eval="ref('base.main_partner')"/>
+            <field name="function">Giám đốc điều hành (CEO)</field>
+            <field name="email">trinh_cong_cong@gmail.com</field>
+            <field name="phone">(979)-904-8902</field>
+        </record>
+        <record id="res_partner_main2" model="res.partner">
+            <field name="name">Nguyễn Thị Diễm My</field>
+            <field name="function">Giám đốc điều hành (COO)</field>
+            <field name="parent_id" eval="ref('base.main_partner')"/>
+            <field name="email">my_dethuong321@gmail.com</field>
+            <field name="phone">(614)-177-4937</field>
+        </record>
+<!--    </data>-->
+</odoo>

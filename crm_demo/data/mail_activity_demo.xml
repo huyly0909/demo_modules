@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="mail_activity_demo_followup_quote" model="mail.activity.type">
+        <field name="name">Theo dõi trích dẩn</field>
+        <field name="icon">fa-file-text-o</field>
+        <field name="res_model_id" ref="crm.model_crm_lead"/>
+        <field name="delay_count">30</field>
+    </record>
+    <record id="mail_activity_demo_make_quote" model="mail.activity.type">
+        <field name="name">Tạo trích dẩn</field>
+        <field name="icon">fa-file-text-o</field>
+        <field name="res_model_id" ref="crm.model_crm_lead"/>
+        <field name="delay_count">15</field>
+    </record>
+    <record id="mail_activity_demo_call_demo" model="mail.activity.type">
+        <field name="name">Đợi điện để giới thiệu</field>
+        <field name="icon">fa-phone</field>
+        <field name="res_model_id" ref="crm.model_crm_lead"/>
+        <field name="delay_count">10</field>
+    </record>
+</odoo>

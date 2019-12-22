@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <record id="hr.dep_administration" model="hr.department">
+          <field name="name">Quản trị</field>
+      </record>
+
+      <record id="hr.dep_sales" model="hr.department">
+          <field name="name">Bán hàng</field>
+      </record>
+
+      <record id="dep_management" model="hr.department">
+          <field name="name">Quản lí</field>
+      </record>
+
+      <record id="dep_rd" model="hr.department">
+          <field name="name">Nghiên cứu &amp; Phát triển</field>
+      </record>
+
+      <record id="dep_ps" model="hr.department">
+          <field name="name">Dịch vụ</field>
+      </record>
+
+    <!--Jobs-->
+      <record id="job_ceo" model="hr.job">
+          <field name="name">Giám đốc điều hành</field>
+          <field name="department_id" ref="dep_management"/>
+          <field name="description">Trình diễn các dịch vụ khác nhau cho từng khách hàng và thuyết phục khách hàng về chức năng của ứng dụng.
+Ứng viên cần có kỹ năng giao tiếp tuyệt vời.
+Xây dựng mối quan hệ và kỹ năng ảnh hưởng
+Chuyên môn về mua lại khách hàng mới (NCAs) và Quản lý mối quan hệ.
+Thu thập thông tin thị trường và khách hàng.
+Phối hợp với nhóm bán hàng và hỗ trợ để áp dụng các chiến lược khác nhau
+Xem xét tiến độ và xác định các cơ hội và các lĩnh vực mới để phát triển.
+Xây dựng mối quan hệ mạnh mẽ với khách hàng / khách hàng để tăng trưởng lợi nhuận kinh doanh.
+Giữ tương tác thường xuyên với các khách hàng quan trọng để khai thác và mở rộng tốt hơn.</field>
+          <field name="requirements">Kỹ năng giao tiếp tốt.
+Chỉ Fresher's có thể áp dụng.
+Ứng viên nên sẵn sàng làm việc trong môi trường trẻ và năng động...
+Ứng viên có thể làm việc trong môi trường có nhịp độ nhanh, khởi động nhanh chóng.
+Người chơi trung thực, dễ gần và vui vẻ.
+Kết quả thúc đẩy.
+Kỹ năng phân tích tuyệt vời, khả năng suy nghĩ logic và "vượt trội"</field>
+      </record>
+
+      <record id="job_cto" model="hr.job">
+          <field name="name">Giám đốc kỹ thuật</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="description">Bạn sẽ tham gia vào các dịch vụ tư vấn mà chúng tôi cung cấp cho các đối tác và khách hàng của chúng tôi: thiết kế, phân tích, phát triển, thử nghiệm, quản lý dự án, hỗ trợ / huấn luyện. Bạn sẽ làm việc tự chủ cũng như phối hợp và giám sát các nhóm phát triển phân tán nhỏ cho một số dự án. Tùy chọn, bạn sẽ cung cấp các buổi đào tạo Odoo cho các đối tác và khách hàng (8-10 người / phiên). Bạn sẽ báo cáo cho Trưởng phòng Dịch vụ Chuyên nghiệp và làm việc chặt chẽ với tất cả các nhà phát triển và chuyên gia tư vấn.</field>
+          <field name="requirements">Cử nhân, thạc sĩ hoặc kỹ sư về Khoa học Máy tính hoặc tương đương theo kinh nghiệm
+Tốt nhất là ít nhất 1 năm kinh nghiệm
+Quan tâm phát triển ứng dụng doanh nghiệp
+Thấu hiểu khách hàng
+Sẵn sàng đi du lịch nước ngoài đôi khi cho các nhiệm vụ ngắn hạn.
+Đam mê Internet và văn hóa của nó
+Người học nhanh và tự chủ, tính cách giải quyết vấn đề, nhiệt tình khi gặp phải những thách thức kỹ thuật
+Tinh thần đồng đội và giao tiếp tốt
+Kỹ năng cần thiết:
+Kiến thức tốt về lập trình hướng đối tượng, mô hình đối tượng, cơ sở dữ liệu quan hệ, nền tảng Unix / Linux
+Thông thạo tiếng Anh, đặc biệt là đọc và viết
+Kỹ năng tốt đẹp:
+Kiến thức tốt về Python
+Kiến thức tốt về HTML và Javascript
+Kiến thức về mô hình hóa giống như UML
+Kỹ năng ngôn ngữ tốt, ngoài tiếng Anh (ưu tiên tiếng Hà Lan và tiếng Pháp, những người khác hoan nghênh)
+          </field>
+      </record>
+
+
+      <record id="job_consultant" model="hr.job">
+          <field name="name">Tư vấn</field>
+          <field name="department_id" ref="dep_ps"/>
+          <field name="no_of_recruitment">5</field>
+      </record>
+
+      <record id="job_developer" model="hr.job">
+          <field name="name">Lập trình viên</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="no_of_recruitment">5</field>
+      </record>
+
+      <record id="job_hrm" model="hr.job">
+          <field name="name">Trưởng phòng nhân sự</field>
+          <field name="department_id" ref="hr.dep_administration"/>
+      </record>
+
+      <record id="job_marketing" model="hr.job">
+          <field name="name">Giám đốc tiếp thị</field>
+          <field name="department_id" ref="hr.dep_sales"/>
+      </record>
+
+      <record id="job_trainee" model="hr.job">
+          <field name="name">Thực tập sinh</field>
+          <field name="description">Bạn tham gia cập nhật các công cụ hướng dẫn và công cụ tiền bán hàng của chúng tôi sau khi ra mắt phiên bản mới của Odoo. Thật vậy, bất kỳ phiên bản mới nào của phần mềm đều mang lại những cải tiến đáng kể về chức năng, công thái học và cấu hình.
+Bạn sẽ phải làm quen với các công cụ hiện có (sách, hỗ trợ lớp, bản trình bày Odoo, các công cụ thương mại),
+tham gia cập nhật các công cụ đó để làm cho chúng phù hợp với phiên bản mới của phần mềm và, chắc chắn,
+để đề xuất các cải tiến để bao quát các miền mới của phần mềm.
+Bạn tham gia bộ phận Hỗ trợ thực hiện. Nhóm 3 người này đi cùng với các khách hàng của Odoo, trong quá trình thiết lập phần mềm. Vai trò của bạn sẽ là
+đến các hội thảo trên web để hiển thị các chức năng khác nhau của phần mềm.
+được tham gia hỗ trợ khách hàng và
+để trả lời câu hỏi của họ
+Bạn giúp người quản lý hỗ trợ thiết lập các dịch vụ hỗ trợ mới bằng cách
+tham gia vào việc điều trị các trường hợp mới,
+góp phần thiết lập một chính trị mới,
+được tham gia vào các cuộc khảo sát về sự hài lòng để có kiến ​​thức tốt hơn về cách khách hàng nhìn thấy sự hỗ trợ.</field>
+          <field name="requirements">Bạn nói trôi chảy tiếng Anh
+Bạn có một phần mềm và nhận thức về công nghệ mới
+Bạn đã sẵn sàng tham gia vào một công ty trẻ và năng động, bạn có thể làm việc trong một môi trường bắt đầu nhanh chóng, một thái độ nhanh nhẹn.
+Bạn là người dễ gần, trung thực và là một người chơi vui vẻ
+Nếu bạn có năng lực phát triển, chúng tôi có thể đề xuất cho bạn các thực tập sinh cụ thể</field>
+      </record>
+
+    <!-- Employee categories -->
+      <record id="employee_category_2" model="hr.employee.category">
+          <field name="name">Bán hàng</field>
+          <field name="color" eval="1"/>
+      </record>
+
+      <record id="employee_category_3" model="hr.employee.category">
+          <field name="name">Thực tập</field>
+          <field name="color" eval="2"/>
+      </record>
+
+      <record id="employee_category_4" model="hr.employee.category">
+          <field name="name">Nhân viên</field>
+          <field name="color" eval="6"/>
+      </record>
+
+      <record id="employee_category_5" model="hr.employee.category">
+          <field name="name">Tư vấn</field>
+          <field name="color" eval="4"/>
+      </record>
+
+    <!--Employees-->
+      <record id="employee_admin" model="hr.employee">
+          <field name="name">Vũ Thanh Huyền</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(237)-125-2389</field>
+          <field name="work_email">vuthanhhuyen@gmail.com</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4'), ref('employee_category_3')])]"/>
+          <field name="job_id" ref="job_ceo"/>
+          <field name="job_title">Giám đốc điều hành</field>
+          <field name="department_id" ref="dep_management"/>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_admin-image.jpg"/>
+      </record>
+
+      <record id="employee_al" model="hr.employee">
+          <field name="name">Đặng Tuấn Anh</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="job_id" ref="job_cto"/>
+          <field name="job_title">Giám đốc kỹ thuật</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4'), ref('employee_category_3')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(376)-310-7863</field>
+          <field name="work_email">dangtuananh@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_al-image.jpg"/>
+      </record>
+
+      <record id="employee_mit" model="hr.employee">
+          <field name="name">Hoàng Đức Anh</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="parent_id" ref="employee_al"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(538)-497-4804</field>
+          <field name="mobile_phone">(538)-672-3185</field>
+          <field name="work_email">hoangducanh@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_mit-image.jpg"/>
+      </record>
+
+      <record id="employee_niv" model="hr.employee">
+          <field name="name">Đỗ Hoàng Gia Bảo</field>
+          <field name="department_id" ref="dep_management"/>
+          <field name="parent_id" ref="employee_al"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(450)-719-4182</field>
+          <field name="work_email">dohoanggiabao.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_niv-image.jpg"/>
+      </record>
+
+      <record id="employee_stw" model="hr.employee">
+          <field name="name">Trần Thị Minh Châu</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="parent_id" ref="employee_al"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(332)-775-6660</field>
+          <field name="work_email">tranthiminhchau@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_stw-image.jpg"/>
+      </record>
+
+      <record id="employee_chs" model="hr.employee">
+          <field name="name">Phạm Tiến Dũng</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="parent_id" ref="employee_al"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(157)-363-8229</field>
+          <field name="work_email">phamtiendung@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_chs-image.jpg"/>
+      </record>
+
+      <record id="employee_qdp" model="hr.employee">
+          <field name="name">Mạc Trung Đức</field>
+          <field name="user_id" ref="base_demo.user_demo"/>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="parent_id" ref="employee_admin"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">+3281813700</field>
+          <field name="work_email">mactrungduc@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_qdp-image.png"/>
+      </record>
+
+      <record id="employee_fme" model="hr.employee">
+          <field name="name">Vũ Hương Giang</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="parent_id" ref="employee_al"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(449)-505-5146</field>
+          <field name="work_email">vuhuongiang@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_fme-image.jpg"/>
+      </record>
+
+      <record id="employee_fpi" model="hr.employee">
+          <field name="name">Nguyễn Thị Ngân Hà</field>
+          <field name="department_id" ref="dep_ps"/>
+          <field name="parent_id" ref="employee_admin"/>
+          <field name="job_id" ref="job_consultant"/>
+          <field name="job_title">Tư vấn</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4'), ref('employee_category_5')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(203)-276-7903</field>
+          <field name="work_email">nguyenthinganha@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_fpi-image.jpg"/>
+      </record>
+
+      <record id="employee_jth" model="hr.employee">
+          <field name="name">Đỗ Quang Ngọc</field>
+          <field name="department_id" ref="dep_ps"/>
+          <field name="parent_id" ref="employee_admin"/>
+          <field name="job_id" ref="job_consultant"/>
+          <field name="job_title">Tư vấn</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4'), ref('employee_category_5')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(663)-707-8451</field>
+          <field name="work_email">doquangngoc@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_jth-image.jpg"/>
+      </record>
+
+      <record id="employee_ngh" model="hr.employee">
+          <field name="name">Đàm Yến Nhi</field>
+          <field name="department_id" ref="hr.dep_sales"/>
+          <field name="parent_id" ref="employee_admin"/>
+          <field name="job_id" ref="job_marketing"/>
+          <field name="job_title">Giấm đốc tiếp thị</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4'), ref('employee_category_2')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(916)-264-7362</field>
+          <field name="work_email">damyennhi@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_ngh-image.jpg"/>
+      </record>
+
+      <record id="employee_vad" model="hr.employee">
+          <field name="name">Lâm Thị Sự Nhân</field>
+          <field name="department_id" ref="hr.dep_administration"/>
+          <field name="parent_id" ref="employee_admin"/>
+          <field name="job_id" ref="job_hrm"/>
+          <field name="job_title">Trưởng phòng nhân sự</field>
+          <field name="category_ids" eval="[(6, 0, [ref('employee_category_4')])]"/>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(360)-694-7266</field>
+          <field name="work_email">nguyencongthanh@gmail.com</field>
+          <field name="user_id" ref="base_demo.nhansu_user"/>
+      </record>
+
+      <record id="employee_han" model="hr.employee">
+          <field name="name">Bùi Phương Thảo</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(350)-912-1201</field>
+          <field name="work_email">buiphuongthao@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_han-image.jpg"/>
+      </record>
+
+      <record id="employee_jve" model="hr.employee">
+          <field name="name">Tô Diệu Thảo</field>
+          <field name="department_id" ref="dep_management"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(114)-262-1607</field>
+          <field name="work_email">todieuthao@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_jve-image.jpg"/>
+      </record>
+
+      <record id="employee_jep" model="hr.employee">
+          <field name="name">Trịnh Thiên Trường</field>
+          <field name="department_id" ref="dep_ps"/>
+          <field name="job_id" ref="job_consultant"/>
+          <field name="job_title">Tư vấn</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(883)-331-5378</field>
+          <field name="work_email">trinhthientruong@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_jep-image.jpg"/>
+      </record>
+
+      <record id="employee_jod" model="hr.employee">
+          <field name="name">Lê Khánh Vy</field>
+          <field name="department_id" ref="hr.dep_sales"/>
+          <field name="job_id" ref="job_marketing"/>
+          <field name="job_title">Giám đốc tiếp thị</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(206)-267-3735</field>
+          <field name="work_email">lekhanhvy.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_jod-image.jpg"/>
+      </record>
+
+      <record id="employee_jog" model="hr.employee">
+          <field name="name">Lý Hoa Vy</field>
+          <field name="department_id" ref="dep_rd"/>
+          <field name="job_id" ref="job_developer"/>
+          <field name="job_title">Lập trình viên</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(754)-532-3841</field>
+          <field name="work_email">lekhanhvy@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_jog-image.jpg"/>
+      </record>
+
+      <record id="employee_jgo" model="hr.employee">
+          <field name="name">Vũ Phương Thảo</field>
+          <field name="department_id" ref="dep_ps"/>
+          <field name="job_id" ref="job_consultant"/>
+          <field name="job_title">Tư vấn</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(944)-518-8232</field>
+          <field name="work_email">vuphuongthao@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_jgo-image.jpg"/>
+      </record>
+
+      <record id="employee_lur" model="hr.employee">
+          <field name="name">Đặng Thành Trung</field>
+          <field name="department_id" ref="hr.dep_sales"/>
+          <field name="job_id" ref="job_marketing"/>
+          <field name="job_title">Giám đốc tiếp thị</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_phone">(644)-169-1352</field>
+          <field name="work_email">dangthanhtrung@gmail.com</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_lur-image.jpg"/>
+      </record>
+
+      <record id="employee_hne" model="hr.employee">
+          <field name="name">Trịnh Thiên Trường</field>
+          <field name="department_id" ref="dep_ps"/>
+          <field name="job_id" ref="job_consultant"/>
+          <field name="job_title">Tư vấn</field>
+          <field name="work_location">Landmark, tầng 80</field>
+          <field name="work_email">trinhthientruong@gmail.com</field>
+          <field name="work_phone">(482)-233-3393</field>
+          <field name="image_1920" type="base64" file="hr_demo/static/img/employee_hne-image.jpg"/>
+      </record>
+</odoo>

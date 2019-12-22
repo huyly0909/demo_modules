@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_layout_inherit" inherit_id="web.layout">
+        <xpath expr="//head/title" position="attributes">
+            <attribute name="t-esc">title and title.replace('- Odoo', '') or ''</attribute>
+        </xpath>
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link rel="icon" href="/base_demo/static/img/2wa-icon.png"/>
+        </xpath>
+    </template>
+</odoo>
