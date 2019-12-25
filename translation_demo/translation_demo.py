@@ -20,7 +20,7 @@ class TranslationHelper(models.Model):
     def update_translations(self):
         translation_installer = self.env['translation.installer']
         modules = [
-            'account', 'crm', 'hr', 'sale', 'utm'
+            'account', 'crm', 'hr', 'project', 'sale', 'utm'
         ]
         module_module_env = self.env['ir.module.module']
         for module in modules:
