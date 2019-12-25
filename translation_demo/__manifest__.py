@@ -14,5 +14,5 @@
         'translation_demo.xml',
         'ir.model.access.csv',
     ],
-    'application': False,
+    'application': True,
 }
