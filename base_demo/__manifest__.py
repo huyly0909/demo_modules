@@ -19,5 +19,5 @@
         'views/webclient_templates.xml',
     ],
     'qweb': ['static/src/xml/base.xml'],
-    'application': True,
+    'application': False,
 }

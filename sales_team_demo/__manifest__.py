@@ -13,5 +13,5 @@
     'data': [
         'data/sales_team_demo.xml',
     ],
-    'application': True,
+    'application': False,
 }

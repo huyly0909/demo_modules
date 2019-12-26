@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- TAGS FOR RETRIEVING THE DEMO ACCOUNTS -->
+
+        <record id="demo_capital_account" model="account.account.tag">
+            <field name="name">Tài khoản vốn demo</field>
+        </record>
+        <record id="demo_stock_account" model="account.account.tag">
+            <field name="name">Tài khoản chứng khoán demo</field>
+        </record>
+        <record id="demo_sale_of_land_account" model="account.account.tag">
+            <field name="name">tài khoản bán đất demo</field>
+        </record>
+        <record id="demo_ceo_wages_account" model="account.account.tag">
+            <field name="name">CEO Tiền lương Demo</field>
+        </record>
+        <record id="demo_office_furniture_account" model="account.account.tag">
+            <field name="name">Nội thất văn phòng</field>
+        </record>
+        <!-- Payment Terms -->
+
+        <record id="account_payment_term_advance" model="account.payment.term">
+            <field name="name">30% tạm ứng cuối tháng sau</field>
+            <field name="note">Điều khoản thanh toán: Tạm ứng 30% cuối tháng sau</field>
+            <field name="line_ids" eval="[(5, 0), (0, 0, {'value': 'percent', 'value_amount': 30.0, 'sequence': 400, 'days': 0, 'option': 'day_after_invoice_date'}),
+                    (0, 0, {'value': 'balance', 'value_amount': 0.0, 'sequence': 500, 'days': 31, 'option': 'day_following_month'})]"/>
+        </record>
+
+        <record id="base_demo.user_demo" model="res.users">
+            <field name="groups_id" eval="[(4,ref('account.group_account_invoice'))]"/>
+        </record>
+
+        <!-- Add Payment terms on some demo partners -->
+        <record id="base_demo.res_partner_2" model="res.partner">
+            <field name="property_payment_term_id" ref="account.account_payment_term_30days"/>
+        </record>
+        <record id="base_demo.res_partner_12" model="res.partner">
+            <field name="property_payment_term_id" ref="account.account_payment_term_end_following_month"/>
+            <field name="property_supplier_payment_term_id" ref="account.account_payment_term_end_following_month"/>
+        </record>
+        <record id="base_demo.res_partner_4" model="res.partner">
+            <field name="property_supplier_payment_term_id" ref="account.account_payment_term_30days"/>
+        </record>
+        <record id="base_demo.res_partner_1" model="res.partner">
+            <field name="property_supplier_payment_term_id" ref="account.account_payment_term_end_following_month"/>
+        </record>
+    </data>
+</odoo>

@@ -1,5 +1,5 @@
 {
-    'name': 'PRODUCT DEMO',
+    'name': 'SALE STOCK DEMO',
     'summary': '',
     'version': '13.0',
     'category': 'Tools',
@@ -8,11 +8,13 @@
     'website': 'https://2wa.vn',
     'license': 'AGPL-3',
     'depends': [
-        'base_demo',
-        'product',
+        'sale_demo',
+        'stock_demo',
+        'sales_team_demo',
+        'sale_stock',
     ],
     'data': [
-        'data/product_demo.xml',
+        'data/sale_order_demo.xml',
     ],
-    'application': False,
+    'application': True,
 }

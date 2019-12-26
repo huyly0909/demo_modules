@@ -1,5 +1,5 @@
 {
-    'name': 'PRODUCT DEMO',
+    'name': 'ACCOUNT DEMO',
     'summary': '',
     'version': '13.0',
     'category': 'Tools',
@@ -9,10 +9,10 @@
     'license': 'AGPL-3',
     'depends': [
         'base_demo',
-        'product',
+        'account',
     ],
     'data': [
-        'data/product_demo.xml',
+        'data/account_demo.xml',
     ],
     'application': False,
 }
