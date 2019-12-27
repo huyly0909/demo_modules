@@ -1,9 +1,13 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-__pycache__
-*.pyc
 *.egg-info
 *.py[cod]
+*.log
+*.pot
+*.pyc
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
 
 # C extensions
 *.so
