@@ -1,7 +1,7 @@
 {
-    'name': 'PROJECT DEMO',
+    'name': 'ANALYTIC DEMO',
     'summary': '',
-    'version': '11.0.1.0.0',
+    'version': '13.0',
     'category': 'Tools',
     'author':
         'Huy Ly',
@@ -9,11 +9,11 @@
     'license': 'AGPL-3',
     'depends': [
         'base_demo',
-        'project',
-        'mail_demo',
+        'analytic',
     ],
     'data': [
-        'data/project_demo.xml',
+        'data/analytic_account_demo.xml',
+        'data/analytic_demo.xml',
     ],
-    'application': True,
+    'application': False,
 }

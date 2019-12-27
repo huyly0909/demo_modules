@@ -1,19 +1,17 @@
 {
-    'name': 'PROJECT DEMO',
+    'name': 'EMAIL DEMO',
     'summary': '',
-    'version': '11.0.1.0.0',
+    'version': '13.0',
     'category': 'Tools',
     'author':
         'Huy Ly',
     'website': 'https://2wa.vn',
     'license': 'AGPL-3',
     'depends': [
-        'base_demo',
-        'project',
-        'mail_demo',
+        'mail',
     ],
     'data': [
-        'data/project_demo.xml',
+        'views/mail_template_views.xml',
     ],
-    'application': True,
+    'application': False,
 }

@@ -1,5 +1,5 @@
 {
-    'name': 'PROJECT DEMO',
+    'name': 'CRM DEMO',
     'summary': '',
     'version': '11.0.1.0.0',
     'category': 'Tools',
@@ -8,12 +8,11 @@
     'website': 'https://2wa.vn',
     'license': 'AGPL-3',
     'depends': [
-        'base_demo',
-        'project',
-        'mail_demo',
+        'analytic_demo',
+        'project_demo',
     ],
     'data': [
-        'data/project_demo.xml',
+        'data/hr_timesheet_demo.xml',
     ],
     'application': True,
 }
