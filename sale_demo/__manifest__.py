@@ -11,6 +11,7 @@
         'product_demo',
         'sale_management',
         'account_demo',
+        'sales_team_demo',
     ],
     'data': [
         'data/product_product_demo.xml',

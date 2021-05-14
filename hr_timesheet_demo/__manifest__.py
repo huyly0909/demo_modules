@@ -1,5 +1,5 @@
 {
-    'name': 'CRM DEMO',
+    'name': 'HR TIMESHEET DEMO',
     'summary': '',
     'version': '11.0.1.0.0',
     'category': 'Tools',
@@ -10,6 +10,7 @@
     'depends': [
         'analytic_demo',
         'project_demo',
+        'hr_timesheet',
     ],
     'data': [
         'data/hr_timesheet_demo.xml',
